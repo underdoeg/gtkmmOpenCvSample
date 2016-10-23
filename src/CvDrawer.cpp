@@ -66,3 +66,31 @@ bool CvDrawer::on_draw(const::Cairo::RefPtr<Cairo::Context> &cr){
 
 	return true;
 }
+
+void CvDrawer::get_preferred_width_vfunc(int &minimum_width, int &natural_width) const{
+	minimum_width = 0;
+	natural_width = mat.cols;
+}
+
+void CvDrawer::get_preferred_height_for_width_vfunc(int width, int &minimum_height, int &natural_height) const{
+	double ratio = mat.cols / double(mat.rows);
+	natural_height = width * ratio;
+	if(drawMode == SCALE)
+		minimum_height = 0;
+	else
+		minimum_height = natural_height;
+}
+
+void CvDrawer::get_preferred_height_vfunc(int &minimum_height, int &natural_height) const{
+	minimum_height = 0;
+	natural_height = mat.rows;
+}
+
+void CvDrawer::get_preferred_width_for_height_vfunc(int height, int &minimum_width, int &natural_width) const{
+	double ratio = mat.rows / double(mat.cols);
+	natural_width = height * ratio;
+	if(drawMode == SCALE)
+		minimum_width = 0;
+	else
+		minimum_width = natural_width;
+}
