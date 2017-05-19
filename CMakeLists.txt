@@ -2,7 +2,7 @@ include(FindPkgConfig)
 
 ##############################################
 
-project(StGallenBgRemoval)
+project(GtkmmOpenCvSample)
 cmake_minimum_required(VERSION 2.8)
 
 
