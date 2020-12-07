@@ -6,6 +6,7 @@
 #include <opencv2/opencv.hpp>
 #include <thread>
 #include <atomic>
+#include <mutex>
 
 class Window: public Gtk::Window{
 public:
